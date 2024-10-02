@@ -13,8 +13,14 @@ int main(){
             break;
         } 
     }
-    cout << "Enter Second number \n";
-    cin >> num2;
+    while(true){
+        cout << "Enter Second Number \n";
+        cin >> num2;
+        if (num2>=1){
+            break;
+        } 
+    }
+
     for(int i=num1; i<= num2; i++){
         sum += i;
     }
