@@ -14,16 +14,19 @@ int getSum(int chosenNum){
 int main()
 {
     int usernum;
+
+    while(true){
     cout << "Enter a number greater than 1\n";
     cin >> usernum;
     
     if (usernum >= 1){
     int sum = getSum(usernum);
     cout << "Sum of integers from 1 to " << usernum << " is: " <<  sum << "\n";
-    return 0;
-    }
-    else {
+    break;
+    } else {
         cout << "Invalid Input \n";
     }
+    }
+
     return 0;
 }
