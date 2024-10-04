@@ -1,12 +1,15 @@
 #include <iostream>
 using namespace std;
 
-
 bool DivByTwo(int n) {
-    while(n>1){
-        if(n%2 != 0) {return false;
+    if (n == 1){  
+        return true;
     }
-    n/=2;
+    while(n > 1){
+        if(n % 2 != 0) {  
+            return false;
+        }
+        n /= 2;
     }
     return true;
 }
@@ -22,3 +25,5 @@ int main (){
         cout << num << " is not a power of 2. \n";
     }
 }
+
+
