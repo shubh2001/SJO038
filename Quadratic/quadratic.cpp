@@ -20,7 +20,8 @@ int quadsolver(int a, int b, int c){
      return 0;
     }
     else{
-        cout << "This quadratic equation has no solutions. \n";
+        double imaginary = sqrt(4*a*c-b*b)/2;
+        cout << "This quadratic equation has complex solutions: " << -b/2 << "+" << imaginary << "i and " << -b/2 << "-" << imaginary << "i \n";
         return 0;
     }
     cout << "The solutions are " << x1 << " and " << x2 << "\n"; 
