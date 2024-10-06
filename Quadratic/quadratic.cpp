@@ -13,10 +13,14 @@ int quadsolver(int a, int b, int c){
      x1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
      x2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
     }
-
+    else{
+        cout << "This quadratic equation has no solutions. \n";
+        return 0;
+    }
     cout << "The solutions are " << x1 << " and " << x2 << "\n"; 
     return 0;
 }
+
 int main(){
     int a;
     int b;
