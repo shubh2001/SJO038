@@ -9,9 +9,15 @@ int quadsolver(int a, int b, int c){
     double x2;
     double discriminant = sqrt(b*b - 4*a*c);
 
-    if(discriminant >= 0){
+    if(discriminant > 0){
      x1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
      x2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
+    }
+    else if (discriminant == 0) {
+     x1 = -b/(2*a);
+     x2 = x1;
+     cout << "The single solution is " << x1 << "\n"; 
+     return 0;
     }
     else{
         cout << "This quadratic equation has no solutions. \n";
