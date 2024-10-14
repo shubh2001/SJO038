@@ -26,7 +26,27 @@ int main(int argc, char * argv[])
     while (rclcpp::ok() && i<n)
     {
         i++;
-        message.linear.x = 1.0;
+        message.linear.x = 0.1;
+        publisher->publish(message);
+        rclcpp::spin_some(node);
+        loop_rate.sleep();
+    }
+
+    message.linear.x = 0;
+    message.linear.y = 0;
+    message.linear.z = 0;
+
+    message.angular.x = 0;
+    message.angular.y = 0;
+    message.angular.z = 0;
+
+    publisher->publish(message);
+
+    i=0, n=1000;
+    while (rclcpp::ok() && i<n)
+    {
+        i++;
+        message.angular.z = (9.0 * 3.14)/180;
         publisher->publish(message);
         rclcpp::spin_some(node);
         loop_rate.sleep();
