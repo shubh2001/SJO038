@@ -11,7 +11,7 @@ int main(int argc, char * argv[])
     auto node = rclcpp::Node::make_shared("publisher");
     auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("cmd_vel",10);
     geometry_msgs::msg::Twist message;
-    rclcpp::WallRate loop_rate(500ms);
+    rclcpp::WallRate loop_rate(10ms);
 
     // while (rclcpp::ok())
     // {   
@@ -32,7 +32,15 @@ int main(int argc, char * argv[])
         loop_rate.sleep();
     }
 
+    message.linear.x = 0;
+    message.linear.y = 0;
+    message.linear.z = 0;
 
+    message.angular.x = 0;
+    message.angular.y = 0;
+    message.angular.z = 0;
+
+    publisher->publish(message);
 
     rclcpp::shutdown();
     return 0;
