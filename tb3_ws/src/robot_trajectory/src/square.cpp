@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
     double angular_speed = node->get_parameter("angular_speed").get_parameter_value().get<double>();
     for(int j=0; j<4; j++)
     {
-        int i=0, n=1000;
+        int i=0, n=1/(0.01*linear_speed);
         while (rclcpp::ok() && i<n)
         {
             i++;
@@ -40,7 +40,7 @@ int main(int argc, char * argv[])
 
         publisher->publish(message);
 
-        i=0, n=1000;
+        i=0, n=90*3.14/(0.01*angular_speed*180);
         while (rclcpp::ok() && i<n)
         {
             i++;
