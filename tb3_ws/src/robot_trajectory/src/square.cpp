@@ -10,19 +10,21 @@ int main(int argc, char * argv[])
     rclcpp::init(argc, argv);
     auto node = rclcpp::Node::make_shared("publisher");
     auto publisher = node->create_publisher<geometry_msgs::msg::Twist>("cmd_vel",10);
-    node->declare_parameter("speed", 0.1);
+    node->declare_parameter("linear_speed", 0.1);
+    node->declare_parameter("angular_speed", 3.1428/20);
     geometry_msgs::msg::Twist message;
     rclcpp::WallRate loop_rate(10ms);
 
 
-    double speed = node->get_parameter("speed").get_parameter_value().get<double>();
+    double linear_speed = node->get_parameter("linear_speed").get_parameter_value().get<double>();
+    double angular_speed = node->get_parameter("angular_speed").get_parameter_value().get<double>();
     for(int j=0; j<4; j++)
     {
         int i=0, n=1000;
         while (rclcpp::ok() && i<n)
         {
             i++;
-            message.linear.x = speed;
+            message.linear.x = linear_speed;
             publisher->publish(message);
             rclcpp::spin_some(node);
             loop_rate.sleep();
@@ -42,7 +44,7 @@ int main(int argc, char * argv[])
         while (rclcpp::ok() && i<n)
         {
             i++;
-            message.angular.z = (9.0 * 3.14)/180;
+            message.angular.z = angular_speed;
             publisher->publish(message);
             rclcpp::spin_some(node);
             loop_rate.sleep();
