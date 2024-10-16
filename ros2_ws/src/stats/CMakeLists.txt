@@ -12,9 +12,10 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(example_interfaces REQUIRED)
 
 add_executable(mean src/mean.cpp)
-ament_target_dependencies(mean rclcpp std_msgs)
+ament_target_dependencies(mean rclcpp std_msgs example_interfaces)
 
 install(TARGETS 
  mean
