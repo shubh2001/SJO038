@@ -1,3 +1,8 @@
 {
-    "cmake.sourceDirectory": "/home/shubh/SJO038/ros2_ws/src/sum"
+    "cmake.sourceDirectory": "/home/shubh/SJO038/ros2_ws/src/sum",
+    "files.associations": {
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
+    }
 }
