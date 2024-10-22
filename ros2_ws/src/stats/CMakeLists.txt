@@ -20,9 +20,13 @@ ament_target_dependencies(mean rclcpp std_msgs example_interfaces)
 add_executable(median src/median.cpp)
 ament_target_dependencies(median rclcpp std_msgs example_interfaces)
 
+add_executable(mode src/mode.cpp)
+ament_target_dependencies(mode rclcpp std_msgs example_interfaces)
+
 install(TARGETS 
  mean
  median
+ mode
  DESTINATION lib/${PROJECT_NAME}
  )
 
